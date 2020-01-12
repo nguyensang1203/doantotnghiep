@@ -1,0 +1,137 @@
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group text-center">
+			<!-- cục giới thiệu -->
+			<div class="list-group-item list-group-item-home">
+				<h1>Socket Client Webapp <small>1.0</small>
+				</h1>
+			</div>
+			
+				<!-- Cục chọn chế độ điều khiển -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-gamepad feature-icon text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Chọn chế độ làm việc</h3>
+					<div ng-repeat="mode_value in mode_status  track by $index">
+						Chế Độ Đang Chọn Là: {{mode_value ? "Thủ Công" : "Tự Động"}}. <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-change="changeMODE()" ng-model="mode_status[$index]" />
+					</div>
+				</div>
+			</div>
+
+			<!-- Cục hiển thị nhiệt độ độ ẩm -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-gamepad feature-icon text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Cảm nhiệt độ-độ ẩm</h3>
+
+					<div>Kết quả: Độ ẩm không khí: {{CamBienDHT11Humi}} *%</div>    
+					<div>Kết quả: Nhiệt độ môi trường: {{CamBienDHT11Temp}}*C</div>          
+				</div>
+			</div>
+
+			<!-- Cục cảm biến mưa -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-gamepad feature-icon text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Cảm biến mưa</h3>
+					Kết quả: {{CamBienMua}}
+				</div>
+			</div>
+			
+			<!-- Cục cảm biến ánh sáng -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-gamepad feature-icon text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Cảm biến ánh sáng</h3>
+					Kết quả: {{CamBienAnhSang}}
+				</div>
+			</div>
+
+			<!-- Cục cảm biến độ ẩm đất -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-gamepad feature-icon text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Cảm biến độ ẩm đất</h3>
+					Kết quả: {{CamBienDoAmDat}}
+				</div>
+			</div>
+
+			<!-- Cục cập nhập giá trị cảm biến -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-tachometer feature-icon  text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Cập nhập cảm biến</h3>
+					<button class="button" ng-click="updateSensor()">
+						Nhấn vô dể cập nhập giá trị cảm biến
+					</button>
+				</div>
+			</div>
+			
+			<!-- Cục thay đổi chữ trên LCD-->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-tachometer feature-icon  text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Cập nhập giá trị LCD </h3>
+					<input type="text" class="input text" ng-model="lcd[0]" ng-change="updateLCD()" />
+					<input type="text" class="input text" ng-model="lcd[1]" ng-change="updateLCD()" />
+				</div>
+			</div>
+			
+			
+			<!-- Cục thay đổi trạng thái Relay -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-tachometer feature-icon  text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">TRẠNG THÁI  RELAY</h3>
+					<div ng-repeat="led_value in leds_status  track by $index">
+						Relay thứ {{$index}} đang {{led_value ? "Tắt" : "Bật"}}. <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[$index]" />
+					</div>
+				</div>
+			</div>
+			
+			<!-- Cục thay đổi trạng thái Roof -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-tachometer feature-icon  text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">TRẠNG THÁI ROOF</h3>
+					<div ng-repeat="roof_value in roof_status  track by $index">
+						Relay thứ {{$index}} đang {{roof_value ? "Đóng" : "Mở"}}. <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-change="changeROOF()" ng-model="roof_status[$index]" />
+					</div>
+				</div>
+			</div>
+
+			<!-- Cục cập nhập giá trị nút nhấn! -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-tachometer feature-icon  text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">TRẠNG THÁI mấy cái RELAY</h3>
+					<div ng-repeat="button_value in buttons  track by $index">
+						Nút nhấn {{$index}} đang {{button_value ? "BẬT" : "TẮT"}}
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
